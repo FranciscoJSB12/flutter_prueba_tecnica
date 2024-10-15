@@ -24,31 +24,7 @@ void main() {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          iconTheme: const IconThemeData(
-            color: Colors.black,
-          ),
-          actions: const [
-            Icon(
-              Icons.search_rounded,
-              size: 24,
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Icon(
-              Icons.shopping_bag_outlined,
-              size: 24,
-            ),
-            SizedBox(
-              width: 20,
-            ),
-          ],
-        ),
-        drawer: const Drawer(),
-        body: const ProductsScreen(),
-      ),
+      home: const ProductsScreen(),
     ),
   );
 }
