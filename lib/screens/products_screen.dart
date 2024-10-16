@@ -8,53 +8,55 @@ class ProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
-        actions: const [
-          Icon(
-            Icons.search_rounded,
-            size: 24,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          iconTheme: const IconThemeData(
+            color: Colors.black,
           ),
-          SizedBox(
-            width: 20,
-          ),
-          Icon(
-            Icons.shopping_bag_outlined,
-            size: 24,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-        ],
-      ),
-      drawer: const Drawer(),
-      body: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(left: 12),
-            child: Text(
-              'Find Your Clothes',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+          actions: const [
+            Icon(
+              Icons.search_rounded,
+              size: 24,
             ),
-          ),
-          DiscountCard(
-            discountDuration: 'Dec 16 - Dec 31',
-            discountPercentage: '25% Off',
-            placeholderText: 'Super Discount',
-            buttonText: 'Grab now',
-            imageUrl:
-                'https://rickandmortyapi.com/api/character/avatar/10.jpeg',
-          ),
-          CategoryList(),
-          SizedBox(
-            height: 20,
-          ),
-          ProductsList(),
-        ],
+            SizedBox(
+              width: 20,
+            ),
+            Icon(
+              Icons.shopping_bag_outlined,
+              size: 24,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+          ],
+        ),
+        drawer: const Drawer(),
+        body: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 12),
+              child: Text(
+                'Find Your Clothes',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+            ),
+            DiscountCard(
+              discountDuration: 'Dec 16 - Dec 31',
+              discountPercentage: '25% Off',
+              placeholderText: 'Super Discount',
+              buttonText: 'Grab now',
+              imageUrl:
+                  'https://rickandmortyapi.com/api/character/avatar/10.jpeg',
+            ),
+            CategoryList(),
+            SizedBox(
+              height: 20,
+            ),
+            ProductsList(),
+          ],
+        ),
       ),
     );
   }
