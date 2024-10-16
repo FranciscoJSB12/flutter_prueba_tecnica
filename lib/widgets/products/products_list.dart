@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prueba_tecnica/widgets/products/product_item.dart';
-
-const List<String> dummyProducts = [
-  'https://rickandmortyapi.com/api/character/avatar/10.jpeg',
-  'https://rickandmortyapi.com/api/character/avatar/11.jpeg',
-  'https://rickandmortyapi.com/api/character/avatar/12.jpeg',
-  'https://rickandmortyapi.com/api/character/avatar/13.jpeg',
-  'https://rickandmortyapi.com/api/character/avatar/14.jpeg',
-];
+import 'package:flutter_prueba_tecnica/data/products.dart';
 
 class ProductsList extends StatelessWidget {
   const ProductsList({super.key});
@@ -21,9 +14,7 @@ class ProductsList extends StatelessWidget {
         itemCount: dummyProducts.length,
         itemBuilder: (BuildContext ctx, int index) {
           return ProductItem(
-            imageUrl: dummyProducts[index],
-            name: 'Mittens Stylish Jacket',
-            price: '\$149.99',
+            product: dummyProducts[index],
           );
         },
       ),

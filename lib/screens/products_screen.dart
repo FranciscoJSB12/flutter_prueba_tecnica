@@ -32,30 +32,32 @@ class ProductsScreen extends StatelessWidget {
           ],
         ),
         drawer: const Drawer(),
-        body: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 12),
-              child: Text(
-                'Find Your Clothes',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+        body: const SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 12),
+                child: Text(
+                  'Find Your Clothes',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                ),
               ),
-            ),
-            DiscountCard(
-              discountDuration: 'Dec 16 - Dec 31',
-              discountPercentage: '25% Off',
-              placeholderText: 'Super Discount',
-              buttonText: 'Grab now',
-              imageUrl:
-                  'https://rickandmortyapi.com/api/character/avatar/10.jpeg',
-            ),
-            CategoryList(),
-            SizedBox(
-              height: 20,
-            ),
-            ProductsList(),
-          ],
+              DiscountCard(
+                discountDuration: 'Dec 16 - Dec 31',
+                discountPercentage: '25% Off',
+                placeholderText: 'Super Discount',
+                buttonText: 'Grab now',
+                imageUrl:
+                    'https://rickandmortyapi.com/api/character/avatar/10.jpeg',
+              ),
+              CategoryList(),
+              SizedBox(
+                height: 20,
+              ),
+              ProductsList(),
+            ],
+          ),
         ),
       ),
     );

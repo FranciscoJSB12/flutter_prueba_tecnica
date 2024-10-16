@@ -1,30 +1,39 @@
 import 'package:flutter/material.dart';
 
 class BasicProductData extends StatelessWidget {
-  const BasicProductData({super.key});
+  const BasicProductData({
+    super.key,
+    required this.price,
+    required this.review,
+    required this.reviewsNumber,
+  });
+
+  final String price;
+  final String review;
+  final String reviewsNumber;
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: double.infinity,
       child: Row(
         children: [
-          Text('\$149.99'),
-          SizedBox(
+          Text('\$$price'),
+          const SizedBox(
             width: 30,
           ),
-          Icon(
+          const Icon(
             Icons.star,
             color: Colors.yellow,
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Text('4.8'),
-          SizedBox(
+          Text(review),
+          const SizedBox(
             width: 10,
           ),
-          Text('(2.6K+ review)')
+          Text('($reviewsNumber reviews)')
         ],
       ),
     );

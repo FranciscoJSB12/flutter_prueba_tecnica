@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prueba_tecnica/screens/product_detail_screen.dart';
 import 'package:flutter_prueba_tecnica/widgets/products/favorite_button.dart';
+import 'package:flutter_prueba_tecnica/models/product.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({
     super.key,
-    required this.imageUrl,
-    required this.name,
-    required this.price,
+    required this.product,
   });
 
-  final String imageUrl;
-  final String name;
-  final String price;
+  final Product product;
 
-  void navigateToDetails(BuildContext context, String imageUrl) {
+  void navigateToDetails(BuildContext context, Product product) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) => ProductDetailScreen(
-          imageUrl: imageUrl,
+          product: product,
         ),
       ),
     );
@@ -27,7 +24,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => navigateToDetails(context, imageUrl),
+      onTap: () => navigateToDetails(context, product),
       child: SizedBox(
         width: 220,
         child: Card(
@@ -50,7 +47,7 @@ class ProductItem extends StatelessWidget {
                         Radius.circular(20),
                       ),
                       child: Image.network(
-                        imageUrl,
+                        product.imageUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -66,14 +63,14 @@ class ProductItem extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                name,
+                product.name,
                 style: const TextStyle(fontWeight: FontWeight.w300),
               ),
               const SizedBox(
                 height: 4,
               ),
               Text(
-                price,
+                product.price,
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
             ],
