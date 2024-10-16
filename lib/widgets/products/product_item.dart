@@ -70,7 +70,7 @@ class ProductItem extends StatelessWidget {
                 height: 4,
               ),
               Text(
-                product.price,
+                'Є ${product.price}',
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
             ],

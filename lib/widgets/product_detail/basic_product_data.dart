@@ -8,7 +8,7 @@ class BasicProductData extends StatelessWidget {
     required this.reviewsNumber,
   });
 
-  final String price;
+  final double price;
   final String review;
   final String reviewsNumber;
 
@@ -18,7 +18,7 @@ class BasicProductData extends StatelessWidget {
       width: double.infinity,
       child: Row(
         children: [
-          Text('\$$price'),
+          Text('Є$price'),
           const SizedBox(
             width: 30,
           ),

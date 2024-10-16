@@ -2,21 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_prueba_tecnica/constans/available_colors.dart';
 import 'package:flutter_prueba_tecnica/models/available_color.dart';
 
-class ColorSelector extends StatefulWidget {
-  const ColorSelector({super.key});
+class ColorSelector extends StatelessWidget {
+  const ColorSelector({
+    super.key,
+    required this.selectColor,
+    required this.selectedColor,
+  });
 
-  @override
-  State<ColorSelector> createState() => _ColorSelectorState();
-}
-
-class _ColorSelectorState extends State<ColorSelector> {
-  AvailableColor selectedColor = availableColors[0];
-
-  void selectColor(AvailableColor color) {
-    setState(() {
-      selectedColor = color;
-    });
-  }
+  final Function(AvailableColor color) selectColor;
+  final AvailableColor selectedColor;
 
   @override
   Widget build(BuildContext context) {

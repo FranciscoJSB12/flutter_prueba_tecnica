@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prueba_tecnica/constans/available_sizes.dart';
 
-class SizeSelector extends StatefulWidget {
-  const SizeSelector({super.key});
+class SizeSelector extends StatelessWidget {
+  const SizeSelector({
+    super.key,
+    required this.selectSize,
+    required this.selectedSize,
+  });
 
-  @override
-  State<SizeSelector> createState() => _SizeSelectorState();
-}
-
-class _SizeSelectorState extends State<SizeSelector> {
-  String selectedSize = availableSizes[0];
-
-  void selectSize(String size) {
-    setState(() {
-      selectedSize = size;
-    });
-  }
+  final Function(String size) selectSize;
+  final String selectedSize;
 
   @override
   Widget build(BuildContext context) {
