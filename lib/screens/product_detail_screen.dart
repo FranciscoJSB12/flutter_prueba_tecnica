@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prueba_tecnica/widgets/product_detail/details.dart';
 import 'package:flutter_prueba_tecnica/widgets/product_detail/product_image.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -13,6 +14,7 @@ class ProductDetailScreen extends StatelessWidget {
         body: Column(
           children: [
             ProductImage(imageUrl: imageUrl),
+            const Details(),
           ],
         ),
       ),
