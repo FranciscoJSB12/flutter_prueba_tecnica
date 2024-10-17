@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prueba_tecnica/models/selected_product.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_prueba_tecnica/providers/selected_products_provider.dart';
 import 'package:flutter_prueba_tecnica/screens/cart_screen.dart';
 import 'package:flutter_prueba_tecnica/widgets/product_detail/basic_product_data.dart';
 import 'package:flutter_prueba_tecnica/widgets/product_detail/color_selector.dart';
 import 'package:flutter_prueba_tecnica/widgets/product_detail/size_selector.dart';
 import 'package:flutter_prueba_tecnica/models/available_color.dart';
 import 'package:flutter_prueba_tecnica/models/product.dart';
+import 'package:flutter_prueba_tecnica/models/selected_product.dart';
 import 'package:flutter_prueba_tecnica/constans/available_sizes.dart';
 import 'package:flutter_prueba_tecnica/constans/available_colors.dart';
 
-class Details extends StatefulWidget {
+class Details extends ConsumerStatefulWidget {
   const Details({
     super.key,
     required this.product,
@@ -18,26 +20,28 @@ class Details extends StatefulWidget {
   final Product product;
 
   @override
-  State<Details> createState() => _DetailsState();
+  ConsumerState<Details> createState() => _DetailsState();
 }
 
-class _DetailsState extends State<Details> {
+class _DetailsState extends ConsumerState<Details> {
   String selectedSize = availableSizes[0];
   AvailableColor selectedColor = availableColors[0];
 
   void navigateToCart(BuildContext context) {
     var product = SelectedProduct(
+      id: widget.product.id,
       name: widget.product.name,
       price: widget.product.price,
       size: selectedSize,
       color: selectedColor.name,
+      imageUrl: widget.product.imageUrl,
     );
+
+    ref.read(selectedProductProvider.notifier).addProductToCart(product);
 
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => CartScreen(
-          product: product,
-        ),
+        builder: (ctx) => const CartScreen(),
       ),
     );
   }

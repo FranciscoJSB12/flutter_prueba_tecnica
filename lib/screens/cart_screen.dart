@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prueba_tecnica/models/selected_product.dart';
+import 'package:flutter_prueba_tecnica/widgets/cart/cart_list.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key, required this.product});
-
-  final SelectedProduct product;
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +12,10 @@ class CartScreen extends StatelessWidget {
           title: const Text('My Cart'),
           centerTitle: true,
         ),
-        body: Container(
+        body: SizedBox(
           width: double.infinity,
           height: MediaQuery.of(context).size.height * 0.55,
-          child: Text('${product.name} ${product.price} ${product.size}'),
+          child: const CartList(),
         ),
       ),
     );
