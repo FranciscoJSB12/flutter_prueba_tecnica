@@ -29,12 +29,13 @@ class _DetailsState extends ConsumerState<Details> {
 
   void navigateToCart(BuildContext context) {
     var product = SelectedProduct(
-      id: widget.product.id,
+      id: widget.product.name + selectedSize + selectedColor.name,
       name: widget.product.name,
       price: widget.product.price,
       size: selectedSize,
       color: selectedColor.name,
       imageUrl: widget.product.imageUrl,
+      quantity: 1,
     );
 
     ref.read(selectedProductProvider.notifier).addProductToCart(product);
@@ -105,7 +106,7 @@ class _DetailsState extends ConsumerState<Details> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50),
+                  minimumSize: const Size.fromHeight(60),
                 ),
                 onPressed: () => navigateToCart(context),
                 child: const Text('Add to Cart'),

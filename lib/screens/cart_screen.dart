@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prueba_tecnica/widgets/cart/cart_list.dart';
+import 'package:flutter_prueba_tecnica/widgets/cart/promo_code_input.dart';
+import 'package:flutter_prueba_tecnica/widgets/cart/total_calculator.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -12,10 +14,13 @@ class CartScreen extends StatelessWidget {
           title: const Text('My Cart'),
           centerTitle: true,
         ),
-        body: SizedBox(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.55,
-          child: const CartList(),
+        body: const SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [CartList(), PromoCodeInput(), TotalCalculator()],
+            ),
+          ),
         ),
       ),
     );

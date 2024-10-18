@@ -16,6 +16,30 @@ class SelectedProductsNotifier extends StateNotifier<List<SelectedProduct>> {
       state = [...state, newProduct];
     }
   }
+
+  void removeProductFromCart(String id) {
+    state = state.where((product) => product.id != id).toList();
+  }
+
+  void increaseAmountInCart(String id) {
+    state = state.map((product) {
+      if (product.id == id) {
+        return product.copyWith(quantity: product.quantity + 1);
+      }
+
+      return product;
+    }).toList();
+  }
+
+  void decreaseAmountInCart(String id) {
+    state = state.map((product) {
+      if (product.id == id && product.quantity > 1) {
+        return product.copyWith(quantity: product.quantity - 1);
+      }
+
+      return product;
+    }).toList();
+  }
 }
 
 final selectedProductProvider =

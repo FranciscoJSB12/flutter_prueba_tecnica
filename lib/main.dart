@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prueba_tecnica/screens/products_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_prueba_tecnica/screens/products_screen.dart';
 
 final theme = ThemeData().copyWith(
   elevatedButtonTheme: ElevatedButtonThemeData(
